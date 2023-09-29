@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle: React.FC = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
   }

@@ -5,12 +5,14 @@ import Router from './Router';
 import GlobalStyle from './styles/GlobalStyle';
 import theme from './styles/theme';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement,
+);
 root.render(
-  <>
+  <div>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
       <Router />
     </ThemeProvider>
-  </>,
+  </div>,
 );

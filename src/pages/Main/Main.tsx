@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Main = () => {
+const Main: React.FC = () => {
   return <div>메인입니다.</div>;
 };
 
