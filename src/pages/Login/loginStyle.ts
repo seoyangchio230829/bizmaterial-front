@@ -8,6 +8,28 @@ const style = {
     justify-content: center;
     align-items: center;
   `,
+  BoxBorder: styled.div`
+    border: 1px solid skyblue;
+    border-radius: 7px;
+    padding: 10%;
+    display: flex;
+    flex-direction: column;
+
+    div {
+      display: flex;
+      /* flex-direction: column; */
+    }
+  `,
+  MemverBtn: styled.div`
+    display: flex;
+    flex-direction: column;
+    button {
+      color: white;
+      background-color: blue;
+      border: 1px solid skyblue;
+      border-radius: 3px;
+    }
+  `,
 };
 
 export default style;
