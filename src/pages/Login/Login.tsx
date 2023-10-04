@@ -1,36 +1,55 @@
 import style from 'pages/Login/loginStyle';
-import { LOGIN_DATA, MEMBER_DATA } from 'pages/Login/LOGIN_DATA';
+import { LOGIN_DATA } from 'pages/Login/LOGIN_DATA';
+import { useState } from 'react';
+import useInputValue from 'hooks/useInputValue';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
+import { faLock } from '@fortawesome/free-solid-svg-icons';
+
+// export type memberProps = {
+//   memberPage: boolean;
+// };
 
 const Login = () => {
-  let mamber = 'company';
-  // mamber = 'individual';
-  const memberStatus = mamber === 'company';
+  const [isCompany, setIsCompany] = useState('company');
+  const { inputValue, handleInput } = useInputValue({
+    id: '',
+    pw: '',
+  });
 
-  //버튼 누르면 스테이트값 저장하고 그 값 비교해서 ui 다른거 보여주게 만들기
+  const memberChangeBtn = (memberStatus: string): void => {
+    setIsCompany(memberStatus);
+  };
 
   return (
     <style.Login>
-      <img src="" alt="logo" />
-      <div>
-        <button>기업고객</button>
-        <button>개인고객</button>
-      </div>
+      <img src="" alt="BizMaterial" />
+      <style.MemverBtns memberPage={isCompany === 'company'}>
+        <button onClick={() => memberChangeBtn('company')}>기업고객</button>
+        <button onClick={() => memberChangeBtn('individual')}>개인고객</button>
+      </style.MemverBtns>
       <style.BoxBorder>
-        {LOGIN_DATA.map(imgs => {
-          return (
-            <div key={imgs.id}>
-              <img src="" alt={imgs.alt} />
-              <input />
-            </div>
-          );
-        })}
+        <div>
+          <FontAwesomeIcon icon={faCircleUser} />
+          <input />
+        </div>
+        <div>
+          <FontAwesomeIcon icon={faLock} />
+          <input />
+        </div>
       </style.BoxBorder>
-      <style.MemverBtn>
-        <button>로그인</button>
-        <button>회원가입</button>
-      </style.MemverBtn>
-      <img
-        src={memberStatus ? MEMBER_DATA.companyImg : MEMBER_DATA.individualImg}
+      <style.LoginBtn>로그인</style.LoginBtn>
+      <style.SignupBtn>
+        <button>개인고객 회원가입</button>
+        <p>|</p>
+        <button>기업고객 회원가입</button>
+      </style.SignupBtn>
+      <style.MemberLogo
+        src={
+          isCompany === 'company'
+            ? './images/IMG_7632.jpg'
+            : './images/IMG_7631.jpg'
+        }
         alt="memberLogo"
       />
     </style.Login>

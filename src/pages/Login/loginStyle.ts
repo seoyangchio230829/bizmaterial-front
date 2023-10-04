@@ -1,5 +1,8 @@
 import { styled } from 'styled-components';
 
+// type memberProps = {
+//   memberPage: boolean;
+// };
 const style = {
   Login: styled.div`
     height: 100vh;
@@ -8,10 +11,15 @@ const style = {
     justify-content: center;
     align-items: center;
   `,
+  MemverBtns: styled.div<{ memberPage: boolean }>`
+    button {
+      background-color: ${props => (props.memberPage ? 'skyblue' : 'blue')};
+    }
+  `,
   BoxBorder: styled.div`
     border: 1px solid skyblue;
-    border-radius: 7px;
-    padding: 10%;
+    border-radius: 20px;
+    padding: 5%;
     display: flex;
     flex-direction: column;
 
@@ -20,15 +28,26 @@ const style = {
       /* flex-direction: column; */
     }
   `,
-  MemverBtn: styled.div`
+  LoginBtn: styled.div`
+    color: white;
+    background-color: skyblue;
+    border-radius: 5px;
+    width: 10%;
+    height: 5%;
+    text-align: center;
+  `,
+  SignupBtn: styled.div`
     display: flex;
-    flex-direction: column;
+    gap: 10px;
+
     button {
-      color: white;
-      background-color: blue;
-      border: 1px solid skyblue;
-      border-radius: 3px;
+      background-color: white;
+      border: 0px;
     }
+  `,
+
+  MemberLogo: styled.img`
+    width: 100px;
   `,
 };
 
