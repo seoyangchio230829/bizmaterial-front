@@ -23,26 +23,43 @@ const Login = () => {
 
   return (
     <style.Login>
-      <img src="" alt="BizMaterial" />
-      <style.MemverBtns memberPage={isCompany === 'company'}>
-        <button onClick={() => memberChangeBtn('company')}>기업고객</button>
-        <button onClick={() => memberChangeBtn('individual')}>개인고객</button>
-      </style.MemverBtns>
+      {/* <img src="" alt="BizMaterial" /> */}
+      <h1>BizMaterial</h1>
+
+      <div>
+        <style.CompanyBtn
+          onClick={() => memberChangeBtn('company')}
+          memberPage={isCompany === 'company'}
+        >
+          기업고객
+        </style.CompanyBtn>
+        <style.IndividualBtn
+          onClick={() => memberChangeBtn('individual')}
+          memberPage={isCompany === 'company'}
+        >
+          개인고객
+        </style.IndividualBtn>
+      </div>
       <style.BoxBorder>
         <div>
-          <FontAwesomeIcon icon={faCircleUser} />
+          <FontAwesomeIcon icon={faCircleUser} size="3x" />
           <input />
         </div>
         <div>
-          <FontAwesomeIcon icon={faLock} />
+          <FontAwesomeIcon
+            icon={faLock}
+            size="3x"
+            style={{ paddingRight: '5px' }}
+          />
           <input />
         </div>
       </style.BoxBorder>
+
       <style.LoginBtn>로그인</style.LoginBtn>
       <style.SignupBtn>
-        <button>개인고객 회원가입</button>
-        <p>|</p>
         <button>기업고객 회원가입</button>
+        <p>|</p>
+        <button>개인고객 회원가입</button>
       </style.SignupBtn>
       <style.MemberLogo
         src={
@@ -52,6 +69,11 @@ const Login = () => {
         }
         alt="memberLogo"
       />
+      <p>
+        {isCompany === 'company'
+          ? '기업고객 화면입니다.'
+          : '개인고객 화면입니다.'}
+      </p>
     </style.Login>
   );
 };
