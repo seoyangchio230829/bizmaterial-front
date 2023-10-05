@@ -1,14 +1,9 @@
 import style from 'pages/Login/loginStyle';
-import { LOGIN_DATA } from 'pages/Login/LOGIN_DATA';
 import { useState } from 'react';
 import useInputValue from 'hooks/useInputValue';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
-
-// export type memberProps = {
-//   memberPage: boolean;
-// };
 
 const Login = () => {
   const [isCompany, setIsCompany] = useState('company');
