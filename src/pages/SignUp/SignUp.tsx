@@ -11,11 +11,12 @@ const SignUp = () => {
 
   return (
     <style.SignUpStyle>
-      <h1>
-        <span>Biz</span>Material
-      </h1>
-      <style.Border />
-      <p>{textCondition} 회원가입</p>
+      <style.Title>
+        <img src="/images/bizmaterial.logo.JPEG" alt="logo" />
+        <style.Border />
+        <p>{textCondition} 회원가입</p>
+      </style.Title>
+
       <div>
         <style.InputBox>
           {dataCondition.map(tests => {
@@ -30,14 +31,16 @@ const SignUp = () => {
         {condition && (
           <style.TypeContainer>
             <p>판매물품 타입</p>
-            {CHECKBOX_DATA.map(checkboxTexts => {
-              return (
-                <style.CheckBox key={checkboxTexts.id}>
-                  <input type="checkbox" />
-                  <p>{checkboxTexts.text}</p>
-                </style.CheckBox>
-              );
-            })}
+            <div>
+              {CHECKBOX_DATA.map(checkboxTexts => {
+                return (
+                  <style.CheckBox key={checkboxTexts.id}>
+                    <input type="checkbox" />
+                    <p>{checkboxTexts.text}</p>
+                  </style.CheckBox>
+                );
+              })}
+            </div>
           </style.TypeContainer>
         )}
       </div>
