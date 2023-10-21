@@ -93,11 +93,20 @@ const Login = () => {
         </div>
       </style.BoxBorder>
 
-      <style.LoginBtn onClick={postUserData}>로그인</style.LoginBtn>
+      <style.LoginBtn
+        onClick={postUserData}
+        isValid={inputValue.id.length > 0 && inputValue.pw.length > 0}
+      >
+        로그인
+      </style.LoginBtn>
       <style.SignupBtn>
-        <button>기업고객 회원가입</button>
+        <button onClick={() => navigate('/signUp/company')}>
+          기업고객 회원가입
+        </button>
         <p>|</p>
-        <button>개인고객 회원가입</button>
+        <button onClick={() => navigate('/signUp/individual')}>
+          개인고객 회원가입
+        </button>
       </style.SignupBtn>
       <style.MemberLogo
         src={

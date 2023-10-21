@@ -53,16 +53,20 @@ const style = {
       }
     }
   `,
-  LoginBtn: styled.div`
+  LoginBtn: styled.button<{ isValid: boolean }>`
     color: white;
     background-color: skyblue;
+    opacity: ${props => (props.isValid ? 1 : 0.5)};
+    border: 0;
     border-radius: 5px;
     width: 460px;
     height: 5%;
     text-align: center;
     line-height: 35px;
     padding: 10px 20px;
+    font-size: 20px;
   `,
+
   SignupBtn: styled.div`
     display: flex;
     gap: 10px;
