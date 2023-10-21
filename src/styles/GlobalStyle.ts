@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle: React.FC = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
+    cursor: pointer;
   }
 
   body {
